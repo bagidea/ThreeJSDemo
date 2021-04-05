@@ -1,0 +1,81 @@
+const canvas = document.createElement("div");
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.background = "#fff";
+
+const demo = document.createElement("div");
+
+const skins = [];
+const cheeks = [];
+const lines = [];
+const lineFills = [];
+const eyes = [];
+
+const client = new XMLHttpRequest();
+client.open('GET', 'textures/T1.svg');
+client.onreadystatechange = () =>
+{
+	demo.innerHTML = client.responseText;
+
+	if(document.getElementById("g12") != null)
+	{
+		skins.push(document.getElementById("path58"));
+		skins.push(document.getElementById("path350"));
+		skins.push(document.getElementById("path374"));
+		skins.push(document.getElementById("path26"));
+
+		cheeks.push(document.getElementById("path170"));
+		cheeks.push(document.getElementById("path382"));
+		cheeks.push(document.getElementById("path178"));
+
+		lines.push(document.getElementById("path54"));
+		lines.push(document.getElementById("path30"));
+		lines.push(document.getElementById("path354"));
+		lines.push(document.getElementById("path358"));
+		lines.push(document.getElementById("path362"));
+		lines.push(document.getElementById("path366"));
+		lines.push(document.getElementById("path338"));
+		lines.push(document.getElementById("path342"));
+		lines.push(document.getElementById("path334"));
+		lines.push(document.getElementById("path302"));
+		lines.push(document.getElementById("path330"));
+		lines.push(document.getElementById("path346"));
+		lines.push(document.getElementById("path326"));
+		lines.push(document.getElementById("path310"));
+
+		lineFills.push(document.getElementById("path378"));
+		lineFills.push(document.getElementById("path202"));
+		lineFills.push(document.getElementById("path206"));
+		lineFills.push(document.getElementById("path190"));
+		lineFills.push(document.getElementById("path194"));
+		lineFills.push(document.getElementById("path198"));
+	}
+}
+client.send();
+
+canvas.appendChild(demo);
+document.body.appendChild(canvas);
+
+const changeColor = () =>
+{
+	if(document.getElementById("g12") != null)
+	{
+		document.getElementById("tspan388").innerHTML = "ff0000";
+		for(let i = 0; i < skins.length; i++){
+			skins[i].style.fill = "#ff0000";
+		}
+
+		document.getElementById("tspan392").innerHTML = "00ff00";
+		for(let i = 0; i < cheeks.length; i++){
+			cheeks[i].style.fill = "#00ff00";
+		}
+
+		for(let i = 0; i < lines.length; i++){
+			lines[i].style.stroke = "#0000ff";
+		}
+	}
+}
+
+document.addEventListener('keydown', (e) => {
+	if(e.code == "Space"){ changeColor(); }
+});

@@ -72,7 +72,7 @@ scene.add(floor);
 const boxGeometry = new BoxGeometry(1, 1, 1);
 const boxMaterial = new MeshStandardMaterial({color: 0xffff00});
 const boxMesh = new Mesh(boxGeometry, boxMaterial);
-boxMesh.castShadow = true;
+joxMesh.castShadow = true;
 boxMesh.receiveShadow = true;
 scene.add(boxMesh);
 

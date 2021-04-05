@@ -8,10 +8,11 @@ app.set('views', './views');
 app.use('/three', express.static('ThreeJS'));
 app.use(express.static('public'));
 
-app.get('/', (req, res) => { res.send("ThreeJSDemo"); });
+//app.get('/', (req, res) => { res.send("ThreeJSDemo"); });
 
 const addPage = (r, t, v = 'preview') => { app.get(r, (req, res) => { res.render(v, {go_to: t}); }); }
 
+addPage('/',  'Demo');
 addPage('/ex1',  'Ex1');
 addPage('/ex2',  'Ex2');
 addPage('/ex3',  'Ex3');
